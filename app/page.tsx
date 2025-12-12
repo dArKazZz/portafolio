@@ -162,10 +162,10 @@ export default function Hero() {
   };
 
   return (
-    <div className="flex flex-col h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
+    <div className="flex flex-col min-h-screen overflow-y-auto scroll-smooth">
       
       {/* Hero Section */}
-      <div ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950 snap-start snap-always">
+      <div ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950">
         
         {/* Background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -399,7 +399,7 @@ export default function Hero() {
       </div>
 
       {/* About Section with 3D parallax */}
-      <div ref={aboutRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden snap-start snap-always">
+      <div ref={aboutRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden">
         {/* 3D floating shapes */}
         <motion.div
           className="absolute top-20 left-10 w-20 h-20 border-2 border-gray-300 dark:border-gray-700 rounded-2xl"
@@ -467,7 +467,7 @@ export default function Hero() {
       </div>
 
       {/* Skills Section with 3D cards */}
-      <div ref={skillsRef} className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center py-24 px-4 relative overflow-hidden snap-start snap-always">
+      <div ref={skillsRef} className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center py-24 px-4 relative overflow-hidden">
         {/* Background decorations */}
         <motion.div
           className="absolute top-10 right-1/4 w-32 h-32 border border-gray-200 dark:border-gray-800 rounded-full"
@@ -538,7 +538,7 @@ export default function Hero() {
       </div>
 
       {/* Featured Projects Section with colorful cards */}
-      <div ref={projectsRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden snap-start snap-always">
+      <div ref={projectsRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden">
         {/* Animated background shapes */}
         <motion.div
           className="absolute -top-20 -left-20 w-64 h-64 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"

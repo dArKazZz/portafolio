@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Github, ExternalLink, Database, Code2, Palette, Layers, Sparkles, Zap, Monitor, Smartphone } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const projects = [
   {
@@ -65,6 +65,14 @@ export default function ProjectsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   const heroInView = useInView(heroRef, { once: true });
   const gridInView = useInView(gridRef, { once: true, margin: "-100px" });
@@ -74,8 +82,9 @@ export default function ProjectsPage() {
     offset: ["start start", "end end"]
   });
   
-  const heroY = useTransform(scrollYProgress, [0, 0.2], [0, -150]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
+  // Disable parallax transforms on mobile for better UX
+  const heroY = useTransform(scrollYProgress, [0, 0.2], [0, isMobile ? 0 : -150]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, isMobile ? 1 : 0.9]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
   return (
@@ -92,19 +101,19 @@ export default function ProjectsPage() {
         {/* Background */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-gray-200/40 dark:bg-gray-800/20 blur-[120px]"
+            className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full bg-gray-200/40 dark:bg-gray-800/20 blur-[80px] md:blur-[120px]"
             animate={{ 
-              x: [0, 100, 0], 
-              y: [0, -50, 0],
+              x: [0, 50, 0], 
+              y: [0, -30, 0],
               rotate: [0, 180, 360]
             }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           />
           <motion.div
-            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-gray-300/40 dark:bg-gray-700/20 blur-[120px]"
+            className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] rounded-full bg-gray-300/40 dark:bg-gray-700/20 blur-[80px] md:blur-[120px]"
             animate={{ 
-              x: [0, -80, 0], 
-              y: [0, 60, 0],
+              x: [0, -40, 0], 
+              y: [0, 30, 0],
               rotate: [360, 180, 0]
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}

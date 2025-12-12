@@ -22,7 +22,7 @@ import {
   Terminal,
   Layers
 } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const education = [
   {
@@ -84,6 +84,14 @@ export default function CurriculumPage() {
   const skillsRef = useRef<HTMLDivElement>(null);
   const bentoRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const heroInView = useInView(heroRef, { once: true });
   const educationInView = useInView(educationRef, { once: true, margin: "-100px" });
@@ -96,8 +104,9 @@ export default function CurriculumPage() {
     offset: ["start start", "end end"]
   });
 
-  const heroY = useTransform(scrollYProgress, [0, 0.15], [0, -100]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
+  // Disable parallax transforms on mobile for better UX
+  const heroY = useTransform(scrollYProgress, [0, 0.15], [0, isMobile ? 0 : -100]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, isMobile ? 1 : 0.95]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   return (
@@ -114,19 +123,19 @@ export default function CurriculumPage() {
         {/* Subtle Background Orbs */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full bg-gray-200/30 dark:bg-gray-800/20 blur-[100px]"
+            className="absolute top-1/4 -left-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full bg-gray-200/30 dark:bg-gray-800/20 blur-[80px] md:blur-[100px]"
             animate={{ 
-              x: [0, 50, 0], 
-              y: [0, -30, 0],
+              x: [0, 30, 0], 
+              y: [0, -20, 0],
               scale: [1, 1.1, 1]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] rounded-full bg-gray-300/30 dark:bg-gray-700/20 blur-[100px]"
+            className="absolute bottom-1/4 -right-20 w-[350px] h-[350px] md:w-[600px] md:h-[600px] rounded-full bg-gray-300/30 dark:bg-gray-700/20 blur-[80px] md:blur-[100px]"
             animate={{ 
-              x: [0, -40, 0], 
-              y: [0, 40, 0],
+              x: [0, -25, 0], 
+              y: [0, 25, 0],
               scale: [1, 1.15, 1]
             }}
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
