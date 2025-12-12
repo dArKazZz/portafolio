@@ -5,51 +5,67 @@ import { useRef, useState, useEffect } from "react";
 
 const projects = [
   {
-    title: "Hotel Management System",
+    title: "Dogetel",
     subtitle: "Backend & Database",
-    description: "Complete hotel management solution with architecture design, backend development, and database administration. Implementation of booking modules, billing system, and customer management.",
-    longDescription: "Comprehensive system that optimizes the hotel's internal workflow, from room management to customer checkout.",
-    tech: ["Java", "PostgreSQL", "Backend", "Database Design"],
+    description: "Comprehensive hotel management system with booking, billing, and customer administration modules. Robust architecture with secure database connection.",
+    longDescription: "Complete solution that optimizes the hotel's internal workflow, from room management to customer checkout.",
+    tech: ["Java", "PostgreSQL", "NetBeans", "Database Design"],
     icon: Database,
     category: "Backend",
-    links: { github: "#", demo: "#" },
+    links: { github: "https://github.com/dArKazZz/DOGETEL_DAE", demo: "#" },
     featured: true,
     stats: [
-      { label: "Modules", value: "8+" },
-      { label: "DB Tables", value: "15" },
-      { label: "Endpoints", value: "40+" },
+      { label: "Modules", value: "6+" },
+      { label: "DB Tables", value: "15+" },
+      { label: "Reports", value: "Admin" },
     ]
   },
   {
-    title: "Kahoot Clone",
+    title: "DogeHoot",
     subtitle: "Full Stack Real-Time",
-    description: "Real-time interactive quiz system with live question delivery. Development of complete backend infrastructure, session management, and real-time synchronization.",
-    longDescription: "Web application that allows creating and participating in interactive quizzes with multiple simultaneous users.",
-    tech: ["Flask", "Python", "WebSockets", "Real Time"],
+    description: "Interactive educational platform like Kahoot with real-time quizzes, PIN system, individual/group mode, Excel reports and rewards system.",
+    longDescription: "Web application that allows creating and participating in interactive quizzes with multiple simultaneous users using WebSockets.",
+    tech: ["Python", "Flask", "MySQL", "WebSockets", "Socket.IO"],
     icon: Zap,
     category: "Full Stack",
-    links: { github: "#", demo: "#" },
+    links: { github: "https://github.com/dArKazZz/DogeHoot", demo: "#" },
     featured: true,
     stats: [
       { label: "Users", value: "100+" },
       { label: "Latency", value: "<50ms" },
-      { label: "Concurrent", value: "Real-time" },
+      { label: "Real-Time", value: "✓" },
     ]
   },
   {
-    title: "E-Commerce Web",
+    title: "VisuAll",
     subtitle: "UI/UX & Frontend",
-    description: "Interface and user experience design for e-commerce platform, achieving intuitive and visually attractive navigation.",
-    longDescription: "Implementation of high-fidelity prototypes and complete frontend structure with focus on conversion.",
-    tech: ["HTML5", "CSS3", "JavaScript", "UI/UX Design"],
+    description: "Accessible e-commerce with color blindness simulator and braille translator. Inclusive design with dynamic cart, advanced filters and optimized UX.",
+    longDescription: "E-commerce platform focused on visual accessibility, with tools for visually impaired users.",
+    tech: ["HTML5", "CSS3", "JavaScript", "jQuery", "GSAP"],
     icon: Palette,
     category: "Frontend",
-    links: { github: "#", demo: "#" },
-    featured: false,
+    links: { github: "https://github.com/dArKazZz/Proyect_VisuAll", demo: "#" },
+    featured: true,
     stats: [
-      { label: "Pages", value: "12" },
-      { label: "Components", value: "50+" },
-      { label: "Responsive", value: "100%" },
+      { label: "Pages", value: "18+" },
+      { label: "Accessible", value: "100%" },
+      { label: "Responsive", value: "✓" },
+    ]
+  },
+  {
+    title: "USAT RAG Chatbot",
+    subtitle: "AI & Machine Learning",
+    description: "Intelligent chatbot with RAG (Retrieval Augmented Generation) for USAT. Implements reranking, query rephrasing and hybrid semantic search.",
+    longDescription: "AI system based on NVIDIA's FACTS framework for accurate responses about university information.",
+    tech: ["Python", "LangChain", "Groq", "FAISS", "Flask"],
+    icon: Sparkles,
+    category: "Full Stack",
+    links: { github: "https://github.com/dArKazZz/usatin3.5", demo: "#" },
+    featured: true,
+    stats: [
+      { label: "LLM", value: "Llama 3.3" },
+      { label: "Embeddings", value: "HF" },
+      { label: "Framework", value: "RAG" },
     ]
   },
 ];
@@ -59,6 +75,7 @@ const categories = [
   { name: "Backend", icon: Database },
   { name: "Full Stack", icon: Code2 },
   { name: "Frontend", icon: Monitor },
+  { name: "AI", icon: Sparkles },
 ];
 
 export default function ProjectsPage() {
@@ -201,11 +218,11 @@ export default function ProjectsPage() {
         </motion.div>
       </motion.section>
 
-      {/* Featured Projects - Bento Grid */}
-      <section ref={gridRef} className="relative py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Bento Grid Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Featured Projects - Compact Grid */}
+      <section ref={gridRef} className="relative py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Compact Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {projects.map((project, index) => (
               <ProjectCard key={project.title} project={project} index={index} inView={gridInView} />
             ))}
@@ -280,110 +297,106 @@ export default function ProjectsPage() {
 function ProjectCard({ project, index, inView }: { project: typeof projects[0]; index: number; inView: boolean }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const IconComponent = project.icon;
-  const isLarge = project.featured;
 
   return (
     <motion.div
       ref={cardRef}
-      className={`group relative ${isLarge ? "lg:col-span-1" : ""}`}
-      initial={{ opacity: 0, y: 60 }}
+      className="group relative"
+      initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.15, duration: 0.6, type: "spring" }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
     >
       <motion.div 
-        className={`relative bg-white dark:bg-gray-900/50 backdrop-blur-xl rounded-[2rem] overflow-hidden border border-gray-200/50 dark:border-gray-800/50 h-full`}
-        whileHover={{ y: -10, scale: 1.02 }}
-        transition={{ duration: 0.3 }}
+        className="relative bg-white dark:bg-[#111] rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 h-full"
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.2 }}
       >
-        {/* Header */}
-        <div className="relative h-48 md:h-56 bg-gray-900 dark:bg-gray-100 p-8 overflow-hidden">
-          {/* Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,white_25%,transparent_25%,transparent_75%,white_75%,white),linear-gradient(45deg,white_25%,transparent_25%,transparent_75%,white_75%,white)] dark:bg-[linear-gradient(45deg,black_25%,transparent_25%,transparent_75%,black_75%,black),linear-gradient(45deg,black_25%,transparent_25%,transparent_75%,black_75%,black)] bg-[size:20px_20px] bg-[position:0_0,10px_10px]" />
+        {/* Compact Header */}
+        <div className="relative h-32 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-black p-5 flex items-center justify-between">
+          {/* Icon */}
+          <div className="w-12 h-12 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-sm">
+            <IconComponent size={24} className="text-gray-700 dark:text-gray-300" />
           </div>
-          
-          {/* Floating Icon */}
-          <motion.div 
-            className="absolute top-6 right-6 w-16 h-16 bg-white/10 dark:bg-gray-900/10 backdrop-blur rounded-2xl flex items-center justify-center"
-            whileHover={{ rotate: 10, scale: 1.1 }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            <IconComponent size={32} className="text-white dark:text-gray-900" />
-          </motion.div>
 
           {/* Category Badge */}
-          <div className="absolute bottom-6 left-8">
-            <span className="px-4 py-2 bg-white/10 dark:bg-gray-900/10 backdrop-blur rounded-full text-white dark:text-gray-900 text-sm font-medium">
-              {project.category}
-            </span>
-          </div>
+          <span className="px-3 py-1.5 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-xs font-medium text-gray-600 dark:text-gray-400">
+            {project.category}
+          </span>
         </div>
 
         {/* Content */}
-        <div className="p-8">
-          <div className="mb-4">
-            <span className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+        <div className="p-5">
+          {/* Title */}
+          <div className="mb-3">
+            <span className="text-xs text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wide">
               {project.subtitle}
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-1">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mt-0.5">
               {project.title}
             </h3>
           </div>
           
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-6">
+          {/* Description */}
+          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
             {project.description}
           </p>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-2xl">
+          {/* Stats Row */}
+          <div className="flex items-center gap-4 mb-4 py-3 px-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl">
             {project.stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <span className="text-lg font-bold text-gray-900 dark:text-white block">
+              <div key={i} className="flex items-center gap-2">
+                <span className="text-sm font-semibold text-gray-900 dark:text-white">
                   {stat.value}
                 </span>
-                <span className="text-xs text-gray-500 dark:text-gray-400">
+                <span className="text-xs text-gray-400 dark:text-gray-500">
                   {stat.label}
                 </span>
+                {i < project.stats.length - 1 && (
+                  <div className="w-px h-3 bg-gray-200 dark:bg-gray-700 ml-2" />
+                )}
               </div>
             ))}
           </div>
 
           {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2 mb-8">
-            {project.tech.map((tech) => (
-              <motion.span
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.tech.slice(0, 4).map((tech) => (
+              <span
                 key={tech}
-                className="px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
-                whileHover={{ scale: 1.05, y: -2 }}
+                className="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
               >
                 {tech}
-              </motion.span>
+              </span>
             ))}
+            {project.tech.length > 4 && (
+              <span className="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-500">
+                +{project.tech.length - 4}
+              </span>
+            )}
           </div>
 
           {/* Links */}
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             <motion.a
               href={project.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-900 hover:bg-gray-900 hover:text-white dark:hover:border-white dark:hover:bg-white dark:hover:text-gray-900 transition-all duration-200 font-semibold"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:border-gray-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-gray-900 transition-all duration-200 text-sm font-medium"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
             >
-              <Github size={18} />
+              <Github size={15} />
               Code
             </motion.a>
             <motion.a
               href={project.links.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
             >
-              <ExternalLink size={18} />
+              <ExternalLink size={15} />
               Demo
             </motion.a>
           </div>
