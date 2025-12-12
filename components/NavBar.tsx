@@ -80,16 +80,16 @@ export function NavBar() {
                         color: isDark ? "#000000" : "#ffffff",
                         transition: { duration: 0.2 }
                     }}
-                    className="flex items-center overflow-hidden text-gray-900 dark:text-gray-100"
+                    className="flex items-center overflow-hidden"
                     style={{
                         padding: "0.5rem",
                         borderRadius: "16px",
                         height: "34px",
                         backgroundColor: pathname === "/" ? (isDark ? "#ffffff" : "#000000") : "transparent",
-                        color: pathname === "/" ? (isDark ? "#000000" : "#ffffff") : "inherit"
+                        color: pathname === "/" ? (isDark ? "#000000" : "#ffffff") : (isDark ? "#f3f4f6" : "#111827")
                     }}
                 >
-                    <Home01Icon size={18} />
+                    <Home01Icon size={18} color="currentColor" />
                     <AnimatePresence>
                         {(hoveredButton === "home" || pathname === "/") && (
                             <motion.span
@@ -114,16 +114,16 @@ export function NavBar() {
                         color: isDark ? "#000000" : "#ffffff",
                         transition: { duration: 0.2 }
                     }}
-                    className="flex items-center overflow-hidden text-gray-900 dark:text-gray-100"
+                    className="flex items-center overflow-hidden"
                     style={{ 
                         padding: "0.5rem", 
                         borderRadius: "16px", 
                         height: "34px",
                         backgroundColor: pathname === "/projects" ? (isDark ? "#ffffff" : "#000000") : "transparent",
-                        color: pathname === "/projects" ? (isDark ? "#000000" : "#ffffff") : "inherit"
+                        color: pathname === "/projects" ? (isDark ? "#000000" : "#ffffff") : (isDark ? "#f3f4f6" : "#111827")
                     }}
                 >
-                    <FolderLibraryIcon size={18} />
+                    <FolderLibraryIcon size={18} color="currentColor" />
                     <AnimatePresence>
                         {(hoveredButton === "projects" || pathname === "/projects") && (
                             <motion.span
@@ -148,16 +148,16 @@ export function NavBar() {
                         color: isDark ? "#000000" : "#ffffff",
                         transition: { duration: 0.2 }
                     }}
-                    className="flex items-center overflow-hidden text-gray-900 dark:text-gray-100"
+                    className="flex items-center overflow-hidden"
                     style={{ 
                         padding: "0.5rem", 
                         borderRadius: "16px", 
                         height: "34px",
                         backgroundColor: pathname === "/curriculum" ? (isDark ? "#ffffff" : "#000000") : "transparent",
-                        color: pathname === "/curriculum" ? (isDark ? "#000000" : "#ffffff") : "inherit"
+                        color: pathname === "/curriculum" ? (isDark ? "#000000" : "#ffffff") : (isDark ? "#f3f4f6" : "#111827")
                     }}
                 >
-                    <FileValidationIcon size={18} />
+                    <FileValidationIcon size={18} color="currentColor" />
                     <AnimatePresence>
                         {(hoveredButton === "curriculum" || pathname === "/curriculum") && (
                             <motion.span

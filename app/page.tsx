@@ -162,10 +162,10 @@ export default function Hero() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
       
       {/* Hero Section */}
-      <div ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950">
+      <div ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950 snap-start snap-always">
         
         {/* Background */}
         <div className="absolute inset-0 overflow-hidden">
@@ -278,7 +278,6 @@ export default function Hero() {
                     },
                     hover: {
                       scale: 1.05,
-                      fontWeight: "500",
                       borderRadius: "32px",
                       transition: { duration: 0.3 },
                       backgroundColor: "#000000",
@@ -358,8 +357,8 @@ export default function Hero() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-900 hover:text-white hover:border-gray-900 dark:hover:bg-white dark:hover:text-gray-900 dark:hover:border-white transition-all duration-300"
-                  whileHover={{ scale: 1.1, y: -5 }}
+                  className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-900 hover:text-white hover:border-gray-900 dark:hover:bg-white dark:hover:text-gray-900 dark:hover:border-white transition-all duration-150"
+                  whileHover={{ scale: 1.1, y: -5, transition: { duration: 0.1 } }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <social.icon size={22} />
@@ -400,7 +399,7 @@ export default function Hero() {
       </div>
 
       {/* About Section with 3D parallax */}
-      <div ref={aboutRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden">
+      <div ref={aboutRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden snap-start snap-always">
         {/* 3D floating shapes */}
         <motion.div
           className="absolute top-20 left-10 w-20 h-20 border-2 border-gray-300 dark:border-gray-700 rounded-2xl"
@@ -457,7 +456,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.5, y: 30 }}
                 animate={aboutInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ delay: 0.6 + index * 0.1, type: "spring", stiffness: 200 }}
-                whileHover={{ scale: 1.05, y: -3 }}
+                whileHover={{ scale: 1.05, y: -3, transition: { duration: 0.1 } }}
               >
                 <badge.icon size={16} />
                 {badge.text}
@@ -468,7 +467,7 @@ export default function Hero() {
       </div>
 
       {/* Skills Section with 3D cards */}
-      <div ref={skillsRef} className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center py-24 px-4 relative overflow-hidden">
+      <div ref={skillsRef} className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center py-24 px-4 relative overflow-hidden snap-start snap-always">
         {/* Background decorations */}
         <motion.div
           className="absolute top-10 right-1/4 w-32 h-32 border border-gray-200 dark:border-gray-800 rounded-full"
@@ -510,6 +509,7 @@ export default function Hero() {
                     scale: 1.05, 
                     y: -10,
                     boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
+                    transition: { duration: 0.15 }
                   }}
                   style={{ transformStyle: "preserve-3d", perspective: 1000 }}
                 >
@@ -520,12 +520,12 @@ export default function Hero() {
                   />
                   
                   <motion.div 
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300"
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-all duration-150"
                     style={{ 
                       backgroundColor: `${skill.color}20`,
                       color: skill.color 
                     }}
-                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1, transition: { duration: 0.2 } }}
                   >
                     <IconComponent size={24} />
                   </motion.div>
@@ -538,7 +538,7 @@ export default function Hero() {
       </div>
 
       {/* Featured Projects Section with colorful cards */}
-      <div ref={projectsRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden">
+      <div ref={projectsRef} className="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center py-24 px-4 relative overflow-hidden snap-start snap-always">
         {/* Animated background shapes */}
         <motion.div
           className="absolute -top-20 -left-20 w-64 h-64 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"
@@ -582,18 +582,19 @@ export default function Hero() {
                   whileHover={{ 
                     y: -15,
                     boxShadow: "0 30px 60px -15px rgba(0, 0, 0, 0.2)",
+                    transition: { duration: 0.15 }
                   }}
                   onMouseMove={(e) => handleCardMouseMove(e, e.currentTarget)}
                   onMouseLeave={(e) => handleCardMouseLeave(e.currentTarget)}
                   style={{ 
                     transformStyle: "preserve-3d",
-                    transition: "transform 0.1s ease-out"
+                    transition: "transform 0.08s ease-out"
                   }}
                 >
                   {/* Icon */}
                   <motion.div 
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 group-hover:bg-gray-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-gray-900 transition-all duration-300"
-                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 group-hover:bg-gray-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-gray-900 transition-all duration-150"
+                    whileHover={{ rotate: 5, scale: 1.1, transition: { duration: 0.15 } }}
                   >
                     <IconComponent className="w-7 h-7" />
                   </motion.div>

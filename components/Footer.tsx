@@ -111,9 +111,7 @@ export function Footer() {
           </div>
 
           <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
-            © {currentYear} Marco Chacón. Made with 
-            <Heart size={14} className="text-red-500 fill-red-500" /> 
-            in Peru
+            © {currentYear} Marco Chacón.
           </p>
         </div>
       </div>
