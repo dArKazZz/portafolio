@@ -376,28 +376,17 @@ function ProjectCard({ project, index, inView }: { project: typeof projects[0]; 
           </div>
 
           {/* Links */}
-          <div className="flex gap-2">
+          <div className="flex">
             <motion.a
               href={project.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:border-gray-900 hover:text-white dark:hover:bg-white dark:hover:border-white dark:hover:text-gray-900 transition-all duration-200 text-sm font-medium"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 transition-all duration-200 text-sm font-medium"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <Github size={15} />
-              Code
-            </motion.a>
-            <motion.a
-              href={project.links.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
-            >
-              <ExternalLink size={15} />
-              Demo
+              View Code
             </motion.a>
           </div>
         </div>

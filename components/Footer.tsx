@@ -45,7 +45,7 @@ export function Footer() {
             </h4>
             <div className="flex flex-col gap-3">
               <a 
-                href="#" 
+                href="https://github.com/dArKazZz" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm"
@@ -54,7 +54,7 @@ export function Footer() {
                 @dArKazZz
               </a>
               <a 
-                href="#" 
+                href="https://instagram.com/itsdArKazZz" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm"
@@ -63,7 +63,7 @@ export function Footer() {
                 @itsdArKazZz
               </a>
               <a 
-                href="#"
+                href="mailto:marcochaconchavez09@gmail.com"
                 className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm"
               >
                 <Mail size={16} />
@@ -81,7 +81,7 @@ export function Footer() {
         <div className="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <motion.a
-              href="#"
+              href="https://github.com/dArKazZz"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
@@ -91,7 +91,7 @@ export function Footer() {
               <Github size={18} />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://instagram.com/itsdArKazZz"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
@@ -101,7 +101,7 @@ export function Footer() {
               <Instagram size={18} />
             </motion.a>
             <motion.a
-              href="#"
+              href="mailto:marcochaconchavez09@gmail.com"
               className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}

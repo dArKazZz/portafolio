@@ -21,22 +21,25 @@ const skills = [
 
 const featuredProjects = [
   {
-    title: "Hotel Management System",
-    description: "Architecture design, backend development and database management. Implemented reservation modules, billing and client control.",
+    title: "Dogetel",
+    description: "Comprehensive hotel management system with booking, billing, and customer administration modules. Robust architecture with secure database connection.",
     tech: ["Java", "PostgreSQL"],
     icon: Database,
+    github: "https://github.com/dArKazZz/DOGETEL_DAE",
   },
   {
-    title: "Kahoot Clone",
-    description: "Interactive system with real-time question delivery. Handled backend, session management, and real-time sync between users.",
-    tech: ["Flask", "WebSockets", "Real Time"],
+    title: "DogeHoot",
+    description: "Interactive educational platform like Kahoot with real-time quizzes, PIN system, individual/group mode and rewards system.",
+    tech: ["Python", "Flask", "WebSockets"],
     icon: Code2,
+    github: "https://github.com/dArKazZz/DogeHoot",
   },
   {
-    title: "E-Commerce Web",
-    description: "Led the interface design and user experience, achieving intuitive and visually attractive navigation. Implemented high-fidelity prototypes.",
-    tech: ["HTML", "CSS", "JavaScript", "UI/UX"],
+    title: "VisuAll",
+    description: "Accessible e-commerce with color blindness simulator and braille translator. Inclusive design with dynamic cart and optimized UX.",
+    tech: ["HTML", "CSS", "JavaScript"],
     icon: Palette,
+    github: "https://github.com/dArKazZz/Proyect_VisuAll",
   },
 ];
 
@@ -344,14 +347,14 @@ export default function Hero() {
             {/* Social Buttons */}
             <motion.div variants={itemVariants} className="flex justify-center gap-4 mb-8">
               {[
-                { icon: Github, href: "#" },
-                { icon: Instagram, href: "#" },
-                { icon: Mail, href: "#" },
+                { icon: Github, href: "https://github.com/dArKazZz" },
+                { icon: Instagram, href: "https://instagram.com/itsdArKazZz" },
+                { icon: Mail, href: "mailto:marcochaconchavez09@gmail.com" },
               ].map((social, i) => (
                 <motion.a
                   key={i}
                   href={social.href}
-                  target="_blank"
+                  target={social.href.startsWith("mailto") ? "_self" : "_blank"}
                   rel="noopener noreferrer"
                   className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-900 hover:text-white hover:border-gray-900 dark:hover:bg-white dark:hover:text-gray-900 dark:hover:border-white transition-all duration-150"
                   whileHover={{ scale: 1.1, y: -5, transition: { duration: 0.1 } }}
@@ -569,31 +572,26 @@ export default function Hero() {
             {featuredProjects.map((project, index) => {
               const IconComponent = project.icon;
               return (
-                <motion.div
+                <motion.a
                   key={project.title}
-                  className="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 cursor-pointer overflow-hidden"
-                  initial={{ opacity: 0, y: 50, rotateX: 15 }}
-                  animate={projectsInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-                  transition={{ delay: 0.2 * index, type: "spring", stiffness: 100 }}
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 cursor-pointer overflow-hidden block"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={projectsInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.1 * index, duration: 0.4 }}
                   whileHover={{ 
-                    y: -15,
-                    boxShadow: "0 30px 60px -15px rgba(0, 0, 0, 0.2)",
-                    transition: { duration: 0.15 }
-                  }}
-                  onMouseMove={(e) => handleCardMouseMove(e, e.currentTarget)}
-                  onMouseLeave={(e) => handleCardMouseLeave(e.currentTarget)}
-                  style={{ 
-                    transformStyle: "preserve-3d",
-                    transition: "transform 0.08s ease-out"
+                    y: -8,
+                    transition: { duration: 0.2 }
                   }}
                 >
                   {/* Icon */}
-                  <motion.div 
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 group-hover:bg-gray-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-gray-900 transition-all duration-150"
-                    whileHover={{ rotate: 5, scale: 1.1, transition: { duration: 0.15 } }}
+                  <div 
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 group-hover:bg-gray-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-gray-900 transition-all duration-200"
                   >
                     <IconComponent className="w-7 h-7" />
-                  </motion.div>
+                  </div>
                   
                   <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
                     {project.title}
@@ -611,7 +609,7 @@ export default function Hero() {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </motion.a>
               );
             })}
           </div>
