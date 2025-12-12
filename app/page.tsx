@@ -256,7 +256,8 @@ export default function Hero() {
                 I'm
                 <motion.div
                   ref={marcoRef}
-                  style={{ display: "inline-block", padding: "0.5rem", marginLeft: "0.5rem", position: "relative", cursor: "pointer" }}
+                  className="group relative inline-block cursor-pointer"
+                  style={{ padding: "0.5rem", marginLeft: "0.5rem" }}
                   whileHover="hover"
                   initial="rest"
                   animate={{
@@ -272,21 +273,17 @@ export default function Hero() {
                   variants={{
                     rest: {
                       scale: 1,
-                      color: "inherit",
-                      borderRadius: "32px",
-                      padding: "0.5rem 1rem",
                     },
                     hover: {
                       scale: 1.05,
-                      borderRadius: "32px",
                       transition: { duration: 0.3 },
-                      backgroundColor: "#000000",
-                      color: "#ffffff",
-                      padding: "0.5rem 1rem",
                     }
                   }}
                 >
-                  Marco
+                  <span className="relative z-10 px-4 py-2 text-gray-900 dark:text-gray-100 group-hover:text-white dark:group-hover:text-gray-900 transition-colors duration-300">
+                    Marco
+                  </span>
+                  <span className="absolute inset-0 bg-gray-900 dark:bg-white rounded-[32px] scale-0 group-hover:scale-100 transition-transform duration-300 origin-center" />
                   <motion.img
                     src="/perfil.png"
                     alt="Marco's Photo"
@@ -320,8 +317,7 @@ export default function Hero() {
 
             <motion.div
               variants={itemVariants}
-              className="mt-4 mb-6 inline-block px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-gray-900 dark:text-gray-100"
-              whileHover={{ backgroundColor: "#000000", color: "#ffffff", transition: { duration: 0.3, type: "tween" } }}
+              className="group mt-4 mb-6 inline-block px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 text-gray-900 dark:text-gray-100 hover:bg-gray-900 hover:text-white hover:border-gray-900 dark:hover:bg-white dark:hover:text-gray-900 dark:hover:border-white transition-all duration-300"
             >
               <motion.span
                 className="text-current text-sm font-mono flex items-center gap-3"
