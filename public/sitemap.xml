@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://portafolio-vert-seven-72.vercel.app/</loc>
+    <loc>https://chatstream.store/</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://portafolio-vert-seven-72.vercel.app/curriculum</loc>
+    <loc>https://chatstream.store/curriculum</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://portafolio-vert-seven-72.vercel.app/projects</loc>
+    <loc>https://chatstream.store/projects</loc>
     <lastmod>2025-12-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

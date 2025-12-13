@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portafolio-vert-seven-72.vercel.app"),
+  metadataBase: new URL("https://chatstream.store"),
   title: {
     default: "Marco Chacón | Full Stack Developer",
     template: "%s | Marco Chacón",
@@ -32,17 +32,17 @@ export const metadata: Metadata = {
     "TypeScript",
     "Portfolio",
   ],
-  authors: [{ name: "Marco Antonio Chacón Chávez", url: "https://portafolio-vert-seven-72.vercel.app" }],
+  authors: [{ name: "Marco Antonio Chacón Chávez", url: "https://chatstream.store" }],
   creator: "Marco Chacón",
   openGraph: {
     title: "Marco Chacón | Full Stack Developer",
     description:
       "Systems Engineering student specializing in building exceptional digital experiences.",
-    url: "https://portafolio-vert-seven-72.vercel.app",
+    url: "https://chatstream.store",
     siteName: "Marco Chacón",
     images: [
       {
-        url: "https://portafolio-vert-seven-72.vercel.app/perfil.png",
+        url: "https://chatstream.store/perfil.png",
         width: 1200,
         height: 630,
         alt: "Marco Chacón — Developer",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "Marco Chacón | Full Stack Developer",
     description:
       "Systems Engineering student specializing in building exceptional digital experiences.",
-    images: ["https://portafolio-vert-seven-72.vercel.app/perfil.png"],
+    images: ["https://chatstream.store/perfil.png"],
   },
   icons: {
     icon: "/favicon.jpeg",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
     alternates: {
-    canonical: "https://portafolio-vert-seven-72.vercel.app",
+    canonical: "https://chatstream.store",
   },
 };
 
@@ -89,13 +89,13 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Marco Antonio Chacón Chávez",
-              url: "https://portafolio-vert-seven-72.vercel.app",
               sameAs: [
                 "https://github.com/yourusername",
                 "https://www.linkedin.com/in/your-profile",
               ],
               jobTitle: "Full Stack Developer",
-              image: "https://portafolio-vert-seven-72.vercel.app/perfil.png",
+              url: "https://chatstream.store",
+              image: "https://chatstream.store/perfil.png",
               description:
                 "Systems Engineering student with high academic performance. Specializing in building exceptional digital experiences using React, Next.js, and TypeScript.",
             }),
