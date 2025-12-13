@@ -15,20 +15,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Marco Chacón | Full Stack Developer",
-  description: "Systems Engineering student with high academic performance. Specializing in building exceptional digital experiences with React, Java, Python, and more.",
-  keywords: ["Marco Chacón", "Developer", "Full Stack", "React", "React Native", "Java", "Python", "Portfolio"],
-  authors: [{ name: "Marco Antonio Chacón Chávez" }],
+  metadataBase: new URL("https://portafolio-vert-seven-72.vercel.app"),
+  title: {
+    default: "Marco Chacón | Full Stack Developer",
+    template: "%s | Marco Chacón",
+  },
+  description:
+    "Systems Engineering student with high academic performance. Specializing in building exceptional digital experiences with React, Java, and Python.",
+  keywords: [
+    "Marco Chacón",
+    "Marco Antonio Chacón Chávez",
+    "Full Stack Developer",
+    "Frontend",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Portfolio",
+  ],
+  authors: [{ name: "Marco Antonio Chacón Chávez", url: "https://portafolio-vert-seven-72.vercel.app" }],
+  creator: "Marco Chacón",
   openGraph: {
     title: "Marco Chacón | Full Stack Developer",
-    description: "Systems Engineering student specializing in building exceptional digital experiences.",
+    description:
+      "Systems Engineering student specializing in building exceptional digital experiences.",
+    url: "https://portafolio-vert-seven-72.vercel.app",
+    siteName: "Marco Chacón",
+    images: [
+      {
+        url: "https://portafolio-vert-seven-72.vercel.app/perfil.png",
+        width: 1200,
+        height: 630,
+        alt: "Marco Chacón — Developer",
+      },
+    ],
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Marco Chacón | Full Stack Developer",
-    description: "Systems Engineering student specializing in building exceptional digital experiences.",
+    description:
+      "Systems Engineering student specializing in building exceptional digital experiences.",
+    images: ["https://portafolio-vert-seven-72.vercel.app/perfil.png"],
+  },
+  icons: {
+    icon: "/favicon.jpeg",
+    shortcut: "/favicon.jpeg",
+    apple: "/perfil.png",
+  },
+  manifest: "/site.webmanifest",
+    alternates: {
+    canonical: "https://portafolio-vert-seven-72.vercel.app",
   },
 };
 
@@ -41,6 +78,29 @@ export default function RootLayout({
     <html lang="en" className="dark:bg-gray-950" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.jpeg" type="image/jpeg" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#111827" />
+        <meta name="robots" content="index, follow" />
+        <meta name="google-site-verification" content="" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Marco Antonio Chacón Chávez",
+              url: "https://portafolio-vert-seven-72.vercel.app",
+              sameAs: [
+                "https://github.com/yourusername",
+                "https://www.linkedin.com/in/your-profile",
+              ],
+              jobTitle: "Full Stack Developer",
+              image: "https://portafolio-vert-seven-72.vercel.app/perfil.png",
+              description:
+                "Systems Engineering student with high academic performance. Specializing in building exceptional digital experiences using React, Next.js, and TypeScript.",
+            }),
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300`}

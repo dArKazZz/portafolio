@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://portafolio-vert-seven-72.vercel.app/sitemap.xml
+Host: https://portafolio-vert-seven-72.vercel.app
