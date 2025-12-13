@@ -81,7 +81,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#111827" />
         <meta name="robots" content="index, follow" />
-        <meta name="google-site-verification" content="" />
+        <meta name="google-site-verification" content="google-site-verification=eFby3MefJcCwW4qT3g00kpi1yF3stYAKJ9VJz1ZgQsY" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
